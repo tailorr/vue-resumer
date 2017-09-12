@@ -14,24 +14,40 @@
         <Profile :profile="profile" />
       </li>
       <li v-show="currentIndex===1">
-        <WorkHistroy :workHistroy="workHistroy" />
+        <ExperienceHistroy :items="workHistroy" :labels="{ company: '公司',time:'时间', position: '职位', duty: '工作职责' }" />
+      </li>
+      <li v-show="currentIndex===2">
+        <ExperienceHistroy :items="studyHistroy" :labels="{school: '学校', time: '时间', major: '学科', degree: '学位' }" />
+      </li>
+      <li v-show="currentIndex===3">
+        <ExperienceHistroy :items="projectHistroy" :labels="{name: '项目名称', content: '项目内容',stack:'技术栈'}" />
+      </li>
+      <li v-show="currentIndex===4">
+        <ExperienceHistroy :items="award" :labels="{prize: '奖项', describe: '描述'}" />
+      </li>
+      <li v-show="currentIndex===5">
+        <ExperienceHistroy :items="contact" :labels="{phone: '手机', email: '邮箱',github:'Github',blog:'Blog'}" />
       </li>
     </ol>
   </div>
 </template>
 <script>
 import Profile from './Profile'
-import WorkHistroy from './WorkHistroy'
+import ExperienceHistroy from './ExperienceHistroy'
 export default {
   components: {
-    Profile, WorkHistroy,
+    Profile, ExperienceHistroy,
   },
   data() {
     return {
       currentIndex: 0,
-      icons: ["gerenxinxi", "aihao", "work-copy"],
-      profile: { name: '', age: '' },
-      workHistroy: [{ company: '', duty: '' }]
+      icons: ["gerenxinxi", "work-copy", "aihao", "aihao", "aihao", "aihao"],
+      profile: { name: '', age: ''},
+      workHistroy: [{ company: '', time: '', position: '', duty: '' }],
+      studyHistroy: [{ school: '', time: '', major: '', degree: '' }],
+      projectHistroy: [{ name: '', content: '', stack: '' }],
+      award: [{ prize: '', describe: '' }],
+      contact: [{ phone: '', email: '', github: '', blog: '' }]
     }
   },
 
