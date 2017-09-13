@@ -62,7 +62,6 @@ export default {
     height: 100%;
     padding-top: 32px;
     background: #2c3e50;
-
     ol {
       width: 80px;
       height: 100%;

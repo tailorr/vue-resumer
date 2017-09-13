@@ -2,8 +2,8 @@
   <div id="app">
     <Topbar class="top-bar" />
     <main>
-      <Editor class="editor" :resume="resume"/>
-      <Preview class="preview" :resume="resume"/>
+      <Editor class="editor" :resume="resume" />
+      <Preview class="preview" :resume="resume" />
     </main>
 
   </div>
@@ -60,14 +60,14 @@ body {
 
 main {
   display: flex;
-  height: calc(100% - 39px);
+  height: calc(100% - 44px);
   .editor {
     height: 100%;
     width: 400px;
   }
   .preview {
     // margin:24px;
-    box-shadow: 1px 10px 20px #000;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     flex: 1;
   }
 }
