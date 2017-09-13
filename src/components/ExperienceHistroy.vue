@@ -1,6 +1,6 @@
 <template>
   <div class="work-histroy">
-    <h2>工作经历</h2>
+    <h2>{{title}}</h2>
     <transition-group name="el-fade-in">
       <el-form class="form" :label-position="'top'" v-for="(item,index) in items" :key="index">
         <el-form-item v-for="(key,index) in keys" :label="labels[key] || key" :key="index">
@@ -25,12 +25,8 @@
    
 <script>
 export default {
-  props: ['items', 'labels'],
-  // data() {
-  // return {
-  // items: 'items'
-  // }
-  // },
+  props: ['title','items', 'labels'],
+
   computed: {
     keys() {
       return Object.keys(this.items[0])

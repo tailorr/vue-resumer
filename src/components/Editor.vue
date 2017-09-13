@@ -11,22 +11,22 @@
     </nav>
     <ol class="panels">
       <li v-show="currentIndex===0">
-        <Profile :profile="profile" />
+        <Profile :items="resume.profile" :title="'个人信息'" :labels="{ name: '姓名', age: '年龄',gender:'性别',location:'所在城市',destination:'期望城市',desiredposition:'期望职位',skills:'职业技能',state:'目前状态',worklife:'工作年限'}"/>
       </li>
       <li v-show="currentIndex===1">
-        <ExperienceHistroy :items="workHistroy" :labels="{ company: '公司',time:'时间', position: '职位', duty: '工作职责' }" />
+        <ExperienceHistroy :items="resume.workHistroy" :title="'工作经历'" :labels="{ company: '公司',time:'时间', position: '职位', duty: '工作职责' }" />
       </li>
       <li v-show="currentIndex===2">
-        <ExperienceHistroy :items="studyHistroy" :labels="{school: '学校', time: '时间', major: '学科', degree: '学位' }" />
+        <ExperienceHistroy :items="resume.studyHistroy" :title="'教育经历'" :labels="{school: '学校', time: '时间', major: '学科', degree: '学位' }" />
       </li>
       <li v-show="currentIndex===3">
-        <ExperienceHistroy :items="projectHistroy" :labels="{name: '项目名称', content: '项目内容',stack:'技术栈'}" />
+        <ExperienceHistroy :items="resume.projectHistroy" :title="'项目经验'" :labels="{name: '项目名称', content: '项目内容',stack:'技术栈'}" />
       </li>
       <li v-show="currentIndex===4">
-        <ExperienceHistroy :items="award" :labels="{prize: '奖项', describe: '描述'}" />
+        <ExperienceHistroy :items="resume.award" :title="'获奖情况'" :labels="{prize: '奖项', describe: '描述'}" />
       </li>
       <li v-show="currentIndex===5">
-        <ExperienceHistroy :items="contact" :labels="{phone: '手机', email: '邮箱',github:'Github',blog:'Blog'}" />
+        <Profile :items="resume.contact" :title="'联系方式'" :labels="{phone: '手机', email: '邮箱', github: 'Github', blog: '个人博客'}" />
       </li>
     </ol>
   </div>
@@ -34,23 +34,24 @@
 <script>
 import Profile from './Profile'
 import ExperienceHistroy from './ExperienceHistroy'
+
 export default {
+  props:['resume'],
   components: {
-    Profile, ExperienceHistroy,
+    Profile, ExperienceHistroy
   },
   data() {
     return {
       currentIndex: 0,
-      icons: ["gerenxinxi", "work-copy", "aihao", "aihao", "aihao", "aihao"],
-      profile: { name: '', age: ''},
-      workHistroy: [{ company: '', time: '', position: '', duty: '' }],
-      studyHistroy: [{ school: '', time: '', major: '', degree: '' }],
-      projectHistroy: [{ name: '', content: '', stack: '' }],
-      award: [{ prize: '', describe: '' }],
-      contact: [{ phone: '', email: '', github: '', blog: '' }]
+      icons: ["gerenxinxi", "work-copy", "education", "disk", "award", "contact",""],
+      // profile: { name: '', age: '',gender:'',location:'',destination:'',desiredposition:'',skills:'',state:'',worklife:''},
+      // workHistroy: [{ company: '', time: '', position: '', duty: '' }],
+      // studyHistroy: [{ school: '', time: '', major: '', degree: '' }],
+      // projectHistroy: [{ name: '', content: '', stack: '' }],
+      // award: [{ prize: '', describe: '' }],
+      // contact: { phone: '', email: '', github: '', blog: '' }
     }
   },
-
 }
 </script>
 
@@ -61,6 +62,7 @@ export default {
     height: 100%;
     padding-top: 32px;
     background: #2c3e50;
+
     ol {
       width: 80px;
       height: 100%;

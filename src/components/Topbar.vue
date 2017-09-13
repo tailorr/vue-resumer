@@ -2,8 +2,9 @@
   <div id="top-bar">
     <h1 class="logo">TAIL RESUME</h1>
     <div class="login">
-      <el-button type="primary" size="mini">注册</el-button>
-      <el-button size="mini">登录</el-button>
+      <el-button type="primary" size="small">注册</el-button>
+      <el-button size="small">登录</el-button>
+      <el-button type="text" size="small">预览</el-button>
     </div>
   </div>
 </template>

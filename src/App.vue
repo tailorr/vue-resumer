@@ -2,9 +2,10 @@
   <div id="app">
     <Topbar class="top-bar" />
     <main>
-      <Editor class="editor" />
-      <Preview class="preview" />
+      <Editor class="editor" :resume="resume"/>
+      <Preview class="preview" :resume="resume"/>
     </main>
+
   </div>
 </template>
 
@@ -17,6 +18,19 @@ export default {
   name: 'app',
   components: {
     Topbar, Editor, Preview
+  },
+  data() {
+    return {
+      resume: {
+        profile: { name: '', age: '', gender: '', location: '', destination: '', desiredposition: '', skills: '', state: '', worklife: '' },
+        workHistroy: [{ company: '', time: '', position: '', duty: '' }],
+        studyHistroy: [{ school: '', time: '', major: '', degree: '' }],
+        projectHistroy: [{ name: '', content: '', stack: '' }],
+        award: [{ prize: '', describe: '' }],
+        contact: { phone: '', email: '', github: '', blog: '' }
+      }
+
+    }
   }
 }
 </script>
@@ -52,6 +66,8 @@ main {
     width: 400px;
   }
   .preview {
+    // margin:24px;
+    box-shadow: 1px 10px 20px #000;
     flex: 1;
   }
 }
